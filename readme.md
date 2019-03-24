@@ -96,7 +96,7 @@ totalMelted <- melt(total_mentions, id.var='Total.No..of.Songs.Var1')
 ggplot(totalMelted, aes(x=Total.No..of.Songs.Var1, y=value, col=variable, group= variable)) + geom_line(size=1.2)  + geom_point(size=2.5) + theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
-![](DrogenkonsumRap_files/figure-markdown_github/unnamed-chunk-5-1.png)
+![](https://github.com/kilbu/RauschgiftInRap/blob/master/unnamed-chunk-5-1.png)
 
 Die Suche nach Drogen-Namen wurde vorerst nur für Kokain und Cannabis durchgeführt. Es ist in diesem Graphen erkennbar, dass die Anzahl der Erwähnungen von Kokain (rote Linie) eindeutig eine steigende Tendenz hat. Ebenso verhält es sich mit Cannabis (blau). Allerdings kann man an der grünen Linie auch sehen, dass die Anzahl der Raplieder sowieso steigt. Daher kann der Anstieg der erwähnten Rauschmittel auch durch die allgemeine Zunahme der Lieder zustande kommen.   Die relativen Zahlen für jedes Jahr (also die Anzahl der Lieder mit Drogeninhalt im Verhältnis zur Gesamtzahl der Lieder in diesem Jahr) zeigt:
 
@@ -112,7 +112,7 @@ relativeMelted <- melt(relative_mentions, id.var='Year')
 ggplot(relativeMelted, aes(x=Year, y=value, col=variable, group= variable))  + geom_line(size=1.2)  + geom_point(size=2.5) + theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
-![](DrogenkonsumRap_files/figure-markdown_github/unnamed-chunk-6-1.png)
+![](https://github.com/kilbu/RauschgiftInRap/blob/master/unnamed-chunk-6-1.png)
 
 Für Kokain sehen wir hier, dass die Anzahl der Lieder, in denen es erwähnt wird auch relativ gesehen eine steigende Tendenz hat. Zwar sank der Wert in manchen Jahren (z.B. 2002, 2003 und 2011), trotzdem zeigt der Graph im ganzen aufwärts.  
 
@@ -131,7 +131,7 @@ polizeiMelted <- melt(polizeistatistiken, id.var='Year')
 ggplot(polizeiMelted, aes(x=Year, y=value, col=variable, group= variable)) + geom_line(size=1.2) + geom_point(size=2.5) + theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
-![](DrogenkonsumRap_files/figure-markdown_github/unnamed-chunk-7-1.png)
+![](https://github.com/kilbu/RauschgiftInRap/blob/master/unnamed-chunk-7-1.png)
 
 Man sieht, dass die Anzahl der erfassten Drogendelikte für Kokain (und Crack) im Beobachtungszeitraum relativ gering und konstant ist. Die Zahl der erfassten Cannabisdelikte variiert deutlich mehr und ist vor allem in den späteren Jahren steigend.  
 
