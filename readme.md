@@ -49,7 +49,7 @@ library(reshape2)
     ## Warning: package 'reshape2' was built under R version 3.5.3
 
 ``` r
-lyrics_list <- read.csv2("lyrics_list_drugcheck.csv", stringsAsFactors = F)[,-c(1:2)]
+lyrics_list <- read.csv2("lyrics_list_drugcheck1.csv", stringsAsFactors = F)[,-c(1:2)]
 ```
 
 ------------------------------------------------------------------------
@@ -96,7 +96,7 @@ totalMelted <- melt(total_mentions, id.var='Total.No..of.Songs.Var1')
 ggplot(totalMelted, aes(x=Total.No..of.Songs.Var1, y=value, col=variable, group= variable)) + geom_line(size=1.2)  + geom_point(size=2.5) + theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
-![](https://github.com/kilbu/RauschgiftInRap/blob/master/unnamed-chunk-5-1.png)
+![](DrogenkonsumRap_files/figure-markdown_github/unnamed-chunk-5-1.png)
 
 Die Suche nach Drogen-Namen wurde vorerst nur für Kokain und Cannabis durchgeführt. Es ist in diesem Graphen erkennbar, dass die Anzahl der Erwähnungen von Kokain (rote Linie) eindeutig eine steigende Tendenz hat. Ebenso verhält es sich mit Cannabis (blau). Allerdings kann man an der grünen Linie auch sehen, dass die Anzahl der Raplieder sowieso steigt. Daher kann der Anstieg der erwähnten Rauschmittel auch durch die allgemeine Zunahme der Lieder zustande kommen.   Die relativen Zahlen für jedes Jahr (also die Anzahl der Lieder mit Drogeninhalt im Verhältnis zur Gesamtzahl der Lieder in diesem Jahr) zeigt:
 
@@ -112,7 +112,7 @@ relativeMelted <- melt(relative_mentions, id.var='Year')
 ggplot(relativeMelted, aes(x=Year, y=value, col=variable, group= variable))  + geom_line(size=1.2)  + geom_point(size=2.5) + theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
-![](https://github.com/kilbu/RauschgiftInRap/blob/master/unnamed-chunk-6-1.png)
+![](DrogenkonsumRap_files/figure-markdown_github/unnamed-chunk-6-1.png)
 
 Für Kokain sehen wir hier, dass die Anzahl der Lieder, in denen es erwähnt wird auch relativ gesehen eine steigende Tendenz hat. Zwar sank der Wert in manchen Jahren (z.B. 2002, 2003 und 2011), trotzdem zeigt der Graph im ganzen aufwärts.  
 
@@ -131,7 +131,7 @@ polizeiMelted <- melt(polizeistatistiken, id.var='Year')
 ggplot(polizeiMelted, aes(x=Year, y=value, col=variable, group= variable)) + geom_line(size=1.2) + geom_point(size=2.5) + theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
-![](https://github.com/kilbu/RauschgiftInRap/blob/master/unnamed-chunk-7-1.png)
+![](DrogenkonsumRap_files/figure-markdown_github/unnamed-chunk-7-1.png)
 
 Man sieht, dass die Anzahl der erfassten Drogendelikte für Kokain (und Crack) im Beobachtungszeitraum relativ gering und konstant ist. Die Zahl der erfassten Cannabisdelikte variiert deutlich mehr und ist vor allem in den späteren Jahren steigend.  
 
@@ -153,26 +153,26 @@ summary(lm(df$relative_coke_mentions ~ df$Kokain_Faelle))
     ## 
     ## Residuals:
     ##      Min       1Q   Median       3Q      Max 
-    ## -0.05789 -0.01417  0.00222  0.01413  0.07325 
+    ## -0.07233 -0.00891  0.00769  0.01573  0.06183 
     ## 
     ## Coefficients:
     ##                     Estimate  Std. Error t value Pr(>|t|)    
-    ## (Intercept)       0.27967677  0.05552787    5.04  0.00012 ***
-    ## df$Kokain_Faelle -0.00000776  0.00000441   -1.76  0.09791 .  
+    ## (Intercept)       0.27198871  0.06218091    4.37  0.00047 ***
+    ## df$Kokain_Faelle -0.00000879  0.00000494   -1.78  0.09437 .  
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
-    ## Residual standard error: 0.029 on 16 degrees of freedom
-    ## Multiple R-squared:  0.162,  Adjusted R-squared:  0.109 
-    ## F-statistic: 3.09 on 1 and 16 DF,  p-value: 0.0979
+    ## Residual standard error: 0.0325 on 16 degrees of freedom
+    ## Multiple R-squared:  0.165,  Adjusted R-squared:  0.113 
+    ## F-statistic: 3.16 on 1 and 16 DF,  p-value: 0.0944
 
 ``` r
 confint(lm(df$relative_coke_mentions ~ df$Kokain_Faelle))
 ```
 
     ##                        2.5 %      97.5 %
-    ## (Intercept)       0.16196295 0.397390601
-    ## df$Kokain_Faelle -0.00001712 0.000001599
+    ## (Intercept)       0.14017107 0.403806353
+    ## df$Kokain_Faelle -0.00001927 0.000001689
 
 Das Ergebnis dieser Regression lässt zuerst vermuten, dass zumindest der polizeilich erfasste Kokainkonsum im betreffenden Jahr keinen Einfluss auf die Erwähnung von Kokain in Raptexten hat. Die Fallzahlen des BKA zeigen zwar einen statistisch minimal signifikanten Einfluss. Jedoch ist dessen Höhe verschwindend gering und eine nähere Betrachtung der Konfidenzintervalle zeigt, dass nicht mit hinreichender Sicherheit gesagt werden kann, ob dieser Effekt positiv oder negativ ist. Die durch das Modell erklärte Varianz ist ebenfalls recht gering.  
 
@@ -209,22 +209,22 @@ summary(lm(df$relative_coke_mentions ~ df$Kokain_Faelle + df$Kokain_Faelle_t_min
     ##     df$coke_mentions_t_minus_1)
     ## 
     ## Residuals:
-    ##       Min        1Q    Median        3Q       Max 
-    ## -0.030330 -0.012350 -0.000534  0.015040  0.030268 
+    ##      Min       1Q   Median       3Q      Max 
+    ## -0.04679 -0.00901  0.00277  0.00871  0.02257 
     ## 
     ## Coefficients:
-    ##                               Estimate  Std. Error t value Pr(>|t|)   
-    ## (Intercept)                 0.03748965  0.08283272    0.45   0.6583   
-    ## df$Kokain_Faelle            0.00000138  0.00000466    0.30   0.7721   
-    ## df$Kokain_Faelle_t_minus_1 -0.00000047  0.00000540   -0.09   0.9320   
-    ## df$coke_mentions_t_minus_1  0.76839487  0.22171114    3.47   0.0042 **
+    ##                                Estimate   Std. Error t value Pr(>|t|)    
+    ## (Intercept)                 0.029928384  0.068001987    0.44  0.66709    
+    ## df$Kokain_Faelle            0.000002366  0.000004743    0.50  0.62623    
+    ## df$Kokain_Faelle_t_minus_1 -0.000000791  0.000004932   -0.16  0.87497    
+    ## df$coke_mentions_t_minus_1  0.735770363  0.171391335    4.29  0.00087 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
-    ## Residual standard error: 0.0186 on 13 degrees of freedom
+    ## Residual standard error: 0.0185 on 13 degrees of freedom
     ##   (1 observation deleted due to missingness)
-    ## Multiple R-squared:  0.606,  Adjusted R-squared:  0.515 
-    ## F-statistic: 6.67 on 3 and 13 DF,  p-value: 0.00576
+    ## Multiple R-squared:  0.665,  Adjusted R-squared:  0.588 
+    ## F-statistic: 8.61 on 3 and 13 DF,  p-value: 0.00209
 
 Dieses Modell scheint schon deutlich besser geeignet zu sein, um die verstärkte Erwähnung von Kokain im deutschen Rap zu erklären.  
 
