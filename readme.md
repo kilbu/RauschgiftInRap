@@ -10,7 +10,7 @@ Drogenkonsum in deutschen Raptexten
    
 
 -   **Die Daten:**
-    -   25.577 Songtexte von deutschen Rap-Musikern (genius.com)
+    -   22.802 Songtexte von deutschen Rap-Musikern (genius.com)
     -   Kriminalstatistik des Bundeskriminalamts  
 -   **Die Ergebnisse:**
     -   Es gibt eine eindeutige Zunahme der Raptexte, in denen über Kokain gesprochen wird
