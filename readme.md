@@ -27,6 +27,8 @@ Drogenkonsum in deutschen Raptexten
 
 Um herauszufinden, ob und wie sich die Erwähnungen von Drogenkonsum in deutschen Raptexten verändert haben, müssen die geeigneten Daten gesammelt werden. Die dafür benutzten R-Skripte, sowie die Datensätze, befinden sich in diesem Repository im Ordner "data".  
 
+#*** Update 09.04.1029: Der Datensatz "lyrics_list_drugcheck2.csv" wurde auf eine Dateigröße reduziert, die es zulässt, ihn in "data" hochzuladen. Er ist nun verfügbar.***
+
 Das Vorgehen ist wie folgt:  
 
 -   Scraping der Namen deutscher Rapper von Wikipedia
@@ -34,7 +36,9 @@ Das Vorgehen ist wie folgt:  
 -   Download aller Songtexte derjenigen Künstler, die dort verfügbar sind, sowie der zugehörigen Metadaten (Release-Date, Album usw.)
 -   Wörterbuch mit Rauschgiftsynonymen von Wikipedia und der Rauschgift-Beratungsseite www.drug-infopool.de
 -   Kriminalstatistik der Rauschgiftdelikte vom Bundeskriminalamt [hier](https://de.statista.com/statistik/daten/studie/2441/umfrage/entwicklung-der-rauschgiftdelikte-in-verbindung-mit-kokain/) und [hier](https://de.statista.com/statistik/daten/studie/2443/umfrage/entwicklung-der-rauschgiftdelikte-in-verbindung-mit-cannabis/)
--   Alles wurde zwischen dem 10. und 17.03.2019 abgerufen     Im folgenden werden die so gewonnen Daten analysiert.   \*\*\*
+-   Alles wurde zwischen dem 10. und 17.03.2019 abgerufen     
+
+Im folgenden werden die so gewonnen Daten analysiert.   \*\*\*
 
 ``` r
 library(ggplot2)
